@@ -82,10 +82,10 @@ public class Main {
             double totalPayment = 0.00;
             if (bajuMelayu[i].getOrderNum() != "") {
                 totalPayment += bajuMelayu[i].payment() + 5.00;
-                System.out.println(bajuMelayu[i].getOrderNum() + "\t\t" + totalPayment);
+                System.out.println(bajuMelayu[i].getOrderNum() + "\t" + totalPayment);
             } else if (bajuKurung[i].getOrderNum() != "") {
                 totalPayment += bajuKurung[i].payment() + 5.00;
-                System.out.println(bajuKurung[i].getOrderNum() + "\t\t" + totalPayment);
+                System.out.println(bajuKurung[i].getOrderNum() + "\t" + totalPayment);
             }
         }
     }
