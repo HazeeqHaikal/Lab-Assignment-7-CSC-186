@@ -16,15 +16,15 @@ public class TailorService extends Service {
 
     public double calcCharge() {
         double charge = 0.0;
-        switch (this.type) {
+        switch (type) {
             case 1:
-                charge = 100.0;
+                charge = 65.00;
                 break;
             case 2:
-                charge = 80.0;
+                charge = 90.00;
                 break;
             case 3:
-                charge = 120.0;
+                charge = 50.00;
                 break;
             default:
                 charge = 0.0;
