@@ -45,7 +45,7 @@ public class Main {
                 bajuMelayu[i] = new BajuMelayu(custName, orderNum, deposit, isDelivery, bajuMelayuType);
             } else if (type == 2) {
                 System.out.print(
-                        "1. Baju Kurung Pahang\n2. Baju Kurung Kedah\n3. Baju Kurung Johor\n4. Baju Kurung Kelantan\nChoose type of Baju Kurung: ");
+                        "1. Normal Baju Kurung (RM30.00)\n2. Baju Kurung Lining (RM60.00)\n3. Normal Baju Kebaya (RM55.00)\n4. Baju Kebaya Lining (RM110.00)\nChoose type of Baju Kurung: ");
                 int bajuKurungType = intScan.nextInt();
                 System.out.print("Embroidery (Y/N): ");
                 char embroidery = strScan.nextLine().charAt(0);
@@ -59,14 +59,6 @@ public class Main {
             } else {
                 System.out.println("Invalid input");
 
-            }
-
-            System.out.print("Do you want to continue (Y/N): ");
-            char choice = strScan.nextLine().charAt(0);
-            choice = Character.toUpperCase(choice);
-
-            if (choice == 'N') {
-                break;
             }
         }
 
@@ -84,32 +76,17 @@ public class Main {
         // Calculate an display payment for each order. If the customer requests
         // delivery, add RM 5.00 to the payment, Calculate and display the total payment
         // for all orders.
-        double totalPayment = 0.00;
+        System.out.println("Order Number\tPrice(RM)");
+        System.out.println("============\t=========");
         for (int i = 0; i < totalCustomer; i++) {
-            // if baju melayu does not has empty value from initialization
-            if (!bajuMelayu[i].getCustName().equals("")) {
-
-                // delivery charges
-                if (bajuMelayu[i].getDelivery()) {
-                    totalPayment += bajuMelayu[i].payment() + 5.00;
-                } else {
-                    totalPayment += bajuMelayu[i].payment();
-                }
-
-                System.out.println("Customer " + (i + 1) + " payment: RM " + totalPayment);
+            double totalPayment = 0.00;
+            if (bajuMelayu[i].getOrderNum() != "") {
+                totalPayment += bajuMelayu[i].payment() + 5.00;
+                System.out.println(bajuMelayu[i].getOrderNum() + "\t\t" + totalPayment);
+            } else if (bajuKurung[i].getOrderNum() != "") {
+                totalPayment += bajuKurung[i].payment() + 5.00;
+                System.out.println(bajuKurung[i].getOrderNum() + "\t\t" + totalPayment);
             }
-
-            // if baju kurung does not has empty value from initialization
-            if (!bajuKurung[i].getCustName().equals("")) {
-                if (bajuKurung[i].getDelivery()) {
-                    totalPayment += bajuKurung[i].payment() + 5.00;
-                } else {
-                    totalPayment += bajuKurung[i].payment();
-                }
-
-                System.out.println("Customer " + (i + 1) + " payment: RM " + totalPayment);
-            }
-
         }
     }
 }
