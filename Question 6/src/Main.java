@@ -47,11 +47,19 @@ public class Main {
             }
 
         }
-        System.out.println("Details of Physical Design order:\n\n");
+        String details = "Details of Physical Design order:\n\n";
+        boolean print = false;
         for (int i = 0; i < orderNum; i++) {
-            if (ds[i] instanceof PhysicalDesign)
-                System.out.println(ds[i].toString() + "\nPAyment: RM" + ds[i].calcPayment());
+            if (ds[i] instanceof PhysicalDesign) {
+                details += ds[i].toString() + "\nPament: RM" + ds[i].calcPayment() + "\n\n";
+                print = true;
+            }
         }
+
+        if (print)
+            System.out.println(details);
+        else
+            System.out.println("No Physical Design order");
 
         int count = 0;
         for (int i = 0; i < orderNum; i++) {
