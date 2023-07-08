@@ -3,8 +3,7 @@ public class PhysicalDesign extends DesignService {
     private boolean printing;
     private int numCopy;
 
-    // method members
-    // normal constructoe
+    // normal constructor
     public PhysicalDesign(String custName, double deposit, boolean urgentOrder, int physicalType, boolean printing,
             int numCopy) {
         super(custName, deposit, urgentOrder);
@@ -66,7 +65,7 @@ public class PhysicalDesign extends DesignService {
             else if (physicalType == 2)
                 payment += 10 * numCopy;
             else if (physicalType == 3)
-                payment +=  35*numCopy;
+                payment += 35 * numCopy;
             else if (physicalType == 4)
                 payment += 3 * numCopy;
 

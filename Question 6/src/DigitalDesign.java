@@ -14,7 +14,7 @@ public class DigitalDesign extends DesignService {
 
     // printeer
     public String toString() {
-        return super.toString() + "\nDIgital Type: " + digitalType;
+        return super.toString() + "\nDigital Type: " + digitalType;
     }
 
     // Abstarct Method

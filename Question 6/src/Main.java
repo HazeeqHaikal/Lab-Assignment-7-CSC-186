@@ -15,8 +15,12 @@ public class Main {
             String custName = strInput.nextLine();
             System.out.print("Enter amount of deposit (RM): ");
             double deposit = intInput.nextDouble();
-            System.out.println("Is this an urgent order? (true/false): ");
-            boolean urgentOrder = intInput.nextBoolean();
+            System.out.println("Is this an urgent order? (Y/N): ");
+            char urgentOrderChoice = strInput.next().charAt(0);
+            urgentOrderChoice = Character.toUpperCase(urgentOrderChoice);
+            boolean urgentOrder = false;
+            if (urgentOrderChoice == 'Y')
+                urgentOrder = true;
 
             System.out.print("1. Physical Design\n2. Digital Design\nEnter your choice: ");
             int choice = intInput.nextInt();
@@ -24,14 +28,19 @@ public class Main {
             if (choice == 1) {
                 System.out.print("1. Banner\n2. Brochure\n3. Poster\n4. BusinessCard\nEnter your choice: ");
                 int physicalType = intInput.nextInt();
-                System.out.print("Enter Printing (true/false): ");
-                boolean print = intInput.nextBoolean();
+                System.out.print("Enter Printing (Y/N): ");
+                char printChoice = strInput.next().charAt(0);
+                printChoice = Character.toUpperCase(printChoice);
+                boolean print = false;
+                if (printChoice == 'Y')
+                    print = true;
+
                 System.out.print("Enter number of copy: ");
                 int copy = intInput.nextInt();
 
                 ds[i] = new PhysicalDesign(custName, deposit, urgentOrder, physicalType, print, copy);
             } else if (choice == 2) {
-                System.out.print("Enter Digital Type: ");
+                System.out.print("1. Website\n2. Advertisement\nEnter your choice: ");
                 int digitalType = intInput.nextInt();
 
                 ds[i] = new DigitalDesign(custName, deposit, urgentOrder, digitalType);
@@ -48,7 +57,7 @@ public class Main {
         for (int i = 0; i < orderNum; i++) {
             if (ds[i] instanceof DigitalDesign) {
                 DigitalDesign dd = (DigitalDesign) ds[i];
-                if (dd.getdigitalType() == 1)
+                if (dd.isUrgentOrder())
                     count++;
             }
 
