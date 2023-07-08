@@ -8,7 +8,7 @@ public class DigitalDesign extends DesignService {
     }
 
     // getter
-    public int getdigitalType() {
+    public int getDigitalType() {
         return digitalType;
     }
 

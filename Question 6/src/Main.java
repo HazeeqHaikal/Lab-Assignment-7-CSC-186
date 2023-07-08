@@ -57,7 +57,7 @@ public class Main {
         for (int i = 0; i < orderNum; i++) {
             if (ds[i] instanceof DigitalDesign) {
                 DigitalDesign dd = (DigitalDesign) ds[i];
-                if (dd.isUrgentOrder())
+                if (dd.isUrgentOrder() && dd.getDigitalType() == 1)
                     count++;
             }
 
