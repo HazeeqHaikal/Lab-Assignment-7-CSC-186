@@ -51,7 +51,7 @@ public class Main {
         boolean print = false;
         for (int i = 0; i < orderNum; i++) {
             if (ds[i] instanceof PhysicalDesign) {
-                details += ds[i].toString() + "\nPament: RM" + ds[i].calcPayment() + "\n\n";
+                details += ds[i].toString() + "\nPayment: RM" + ds[i].calcPayment() + "\n\n";
                 print = true;
             }
         }
@@ -71,7 +71,10 @@ public class Main {
 
         }
 
-        System.out.print("the number of urgent orders for the website design: " + count);
+        if (count == 0)
+            System.out.print("No urgent orders for the website design");
+        else
+            System.out.print("The number of urgent orders for the website design: " + count);
 
         intInput.close();
         strInput.close();
