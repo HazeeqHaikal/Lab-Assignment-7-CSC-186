@@ -32,11 +32,13 @@ public class Main {
                 char printChoice = strInput.next().charAt(0);
                 printChoice = Character.toUpperCase(printChoice);
                 boolean print = false;
-                if (printChoice == 'Y')
-                    print = true;
 
-                System.out.print("Enter number of copy: ");
-                int copy = intInput.nextInt();
+                int copy = 0;
+                if (printChoice == 'Y') {
+                    print = true;
+                    System.out.print("Enter number of copy: ");
+                    copy = intInput.nextInt();
+                }
 
                 ds[i] = new PhysicalDesign(custName, deposit, urgentOrder, physicalType, print, copy);
             } else if (choice == 2) {
