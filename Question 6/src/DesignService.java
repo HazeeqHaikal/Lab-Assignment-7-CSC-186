@@ -1,4 +1,4 @@
-public class DesignService {
+public abstract class DesignService {
     private String custName;
     private double deposit;
     private boolean urgentOrder;
@@ -40,9 +40,7 @@ public class DesignService {
         this.urgentOrder = urgentOrder;
     }
 
-    public double calcPayment() {
-        return 0;
-    }
+    public abstract double calcPayment();
 
     public String toString() {
         return "Customer Name: " + custName + "\nDeposit: " + deposit + "\nUrgent Order: " + urgentOrder;

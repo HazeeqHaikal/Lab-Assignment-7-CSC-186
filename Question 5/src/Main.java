@@ -5,19 +5,20 @@ public class Main {
         Scanner intScan = new Scanner(System.in);
         Scanner strScan = new Scanner(System.in);
 
-        System.out.println("Enter number of services: ");
+        System.out.print("Enter number of services: ");
         int numService = intScan.nextInt();
         Service[] serve = new Service[numService];
 
+        System.out.println();
         for (int i = 0; i < numService; i++) {
-            System.out.print("Enter service date: ");
+            System.out.print("Enter service date (example: 1/1/2021): ");
             String serviceDate = strScan.nextLine();
 
-            System.out.print("Enter type of service (1 - Tailor, 2 - Cleaning): ");
+            System.out.print("\n1. Tailor\n2. Cleaning\nEnter your choice: ");
             int type = intScan.nextInt();
 
             if (type == 1) {
-                System.out.print("Enter type of tailor (1 - Baju Kurung, 2 - Baju Melayu, 3 - Others): ");
+                System.out.print("\n1. Baju Kurung\n2. Baju Melayu\n3. Others\nEnter your choice: ");
                 int tailorType = intScan.nextInt();
                 serve[i] = new TailorService(serviceDate, tailorType);
             } else if (type == 2) {
@@ -30,16 +31,25 @@ public class Main {
                 System.out.println("Invalid type of service.");
             }
 
+            System.out.println();
         }
 
         // info cleaning service more than 10 hours
-        System.out.println("\nCleaning Service more than 10 hours:");
+        String output = "\n\nCleaning Service more than 10 hours:\n";
+        boolean found = false;
         for (int i = 0; i < numService; i++) {
             if (serve[i] instanceof CleaningService) {
                 if (((CleaningService) serve[i]).getHoursWorked() > 10) {
-                    System.out.println(serve[i].toString());
+                    output += serve[i].toString() + "\n";
+                    found = true;
                 }
             }
+        }
+
+        if (found) {
+            System.out.print(output);
+        } else {
+            System.out.print("No cleaning service more than 10 hours.");
         }
 
         // display total charges of all services
@@ -48,7 +58,7 @@ public class Main {
             totalCharge += serve[i].calcCharge();
         }
 
-        System.out.println("\nTotal charges of all services: RM" + totalCharge);
+        System.out.printf("\n\nTotal charges of all services: RM%.2f", totalCharge);
 
         intScan.close();
         strScan.close();

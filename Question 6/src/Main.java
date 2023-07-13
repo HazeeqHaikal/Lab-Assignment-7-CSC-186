@@ -15,7 +15,7 @@ public class Main {
             String custName = strInput.nextLine();
             System.out.print("Enter amount of deposit (RM): ");
             double deposit = intInput.nextDouble();
-            System.out.println("Is this an urgent order? (Y/N): ");
+            System.out.print("Is this an urgent order? (Y/N): ");
             char urgentOrderChoice = strInput.next().charAt(0);
             urgentOrderChoice = Character.toUpperCase(urgentOrderChoice);
             boolean urgentOrder = false;
@@ -26,7 +26,7 @@ public class Main {
             int choice = intInput.nextInt();
 
             if (choice == 1) {
-                System.out.print("1. Banner\n2. Brochure\n3. Poster\n4. BusinessCard\nEnter your choice: ");
+                System.out.print("1. Banner\n2. Brochure\n3. Poster\n4. Business Card\nEnter your choice: ");
                 int physicalType = intInput.nextInt();
                 System.out.print("Enter Printing (Y/N): ");
                 char printChoice = strInput.next().charAt(0);
@@ -47,6 +47,8 @@ public class Main {
 
                 ds[i] = new DigitalDesign(custName, deposit, urgentOrder, digitalType);
             }
+
+            strInput.nextLine();
 
         }
         String details = "Details of Physical Design order:\n\n";
